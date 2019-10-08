@@ -28,7 +28,6 @@ JS file
 ```js
 const requireWat = require('require-wat');
 
-
 (async () => {
     const { add } = await requireWat('./add.wat');
 
