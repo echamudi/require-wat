@@ -2,7 +2,7 @@ const requireWat = require('../')
 const assert = require('assert');
 const path = require('path');
 
-it('loads and run correctly', async function() {
+it('loads and runs correctly', async function() {
     const watFile = path.join(__dirname, '/calc.wat');
 
     const { add, sub } = await requireWat(watFile);
