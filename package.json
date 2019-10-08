@@ -16,5 +16,7 @@
     "url": "https://github.com/ezhmd/require-wat/issues"
   },
   "homepage": "https://github.com/ezhmd/require-wat#readme",
-  "dependencies": {}
+  "dependencies": {
+    "wabt": "^1.0.12"
+  }
 }
