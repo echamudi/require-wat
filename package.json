@@ -1,6 +1,6 @@
 {
   "name": "require-wat",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Easily require a WebAssembly WAT file from JS file",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,11 @@
     "type": "git",
     "url": "git+https://ezhmd@github.com/ezhmd/require-wat.git"
   },
+  "keywords": [
+    "WebAssembly",
+    "wat",
+    "wasm"
+  ],
   "author": "Ezzat Chamudi",
   "license": "Apache-2.0",
   "bugs": {
