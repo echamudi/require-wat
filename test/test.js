@@ -12,4 +12,5 @@ it('loads and run correctly', async function() {
     assert.deepStrictEqual(sub(5,5), 0);
     assert.deepStrictEqual(sub(7,6), 1);
     assert.deepStrictEqual(sub(3,11), -8);
+    assert.deepStrictEqual(sub(-9,-11), 2);
 });
