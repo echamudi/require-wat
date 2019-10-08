@@ -1,7 +1,7 @@
 {
   "name": "require-wat",
   "version": "1.0.0",
-  "description": "(WIP) Reads a WebAssembly WAT file and return the exports object",
+  "description": "Easily require a WebAssembly WAT file from JS file",
   "main": "index.js",
   "scripts": {
     "test": "mocha ./test/test.js"
