@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/ezhmd/require-wat#readme",
   "dependencies": {
-    "mocha": "^6.2.1",
     "wabt": "^1.0.12"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.1"
   }
 }
