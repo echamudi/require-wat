@@ -1,6 +1,6 @@
 {
   "name": "require-wat",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easily require a WebAssembly WAT file from JS file",
   "main": "index.js",
   "scripts": {
