@@ -8,7 +8,7 @@ Please check [releases](https://github.com/ezhmd/require-wat/releases) for stabl
 
 ## Usage
 
-`add.wat` file
+WAT file (`add.wat`)
 
 ```wat
 (module
@@ -33,9 +33,12 @@ const requireWat = require('require-wat');
 
     let result = add(1, 2);
 
-    console.log('1 + 2 is ' + result);
+    console.log('1 + 2 is ' + result); // 1 + 2 is 3
 })();
 ```
+
+Please check test folder for more examples
+
 
 ## Development
 
