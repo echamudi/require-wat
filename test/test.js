@@ -32,7 +32,7 @@ it('wat can load js function', async function() {
     assert.deepStrictEqual(cubeVolume(-10), 0);
 });
 
-it('js can access exported memory', async function() {
+it('js can access modified memory from wat', async function() {
 
     const watFile = path.join(__dirname, '/hello.wat');
     const { storeHello, myMemory } = await requireWat(watFile);
