@@ -32,6 +32,18 @@ it('wat can load js function', async function() {
     assert.deepStrictEqual(cubeVolume(-10), 0);
 });
 
+it('js can access exported memory', async function() {
+
+    const watFile = path.join(__dirname, '/hello.wat');
+    const { storeHello, myMemory } = await requireWat(watFile);
+
+    const memory = new Uint8Array(myMemory.buffer, 0, 5);
+    storeHello();
+    const result = String.fromCharCode(...memory);
+
+    assert.deepStrictEqual(result, "hello");
+});
+
 // No global in node js
 
 // it('wat can access global', async function() {
