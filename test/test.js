@@ -44,6 +44,25 @@ it('js can access modified memory from wat', async function() {
     assert.deepStrictEqual(result, "hello");
 });
 
+it('wat can access modified memory from js', async function() {
+
+    const watFile = path.join(__dirname, '/sumOfFiveNumbers.wat');
+    const { sumOfFiveNumbers, myMemory } = await requireWat(watFile);
+
+    const memory = new Uint8Array(myMemory.buffer, 0, 5);
+
+    assert.deepStrictEqual(sumOfFiveNumbers(), 0);
+
+    memory[0] = 23;
+    memory[1] = 11;
+    assert.deepStrictEqual(sumOfFiveNumbers(), 34);
+
+    memory[2] = 31;
+    memory[3] = 91;
+    memory[4] = 12;    
+    assert.deepStrictEqual(sumOfFiveNumbers(), 168);
+});
+
 // No global in node js
 
 // it('wat can access global', async function() {
