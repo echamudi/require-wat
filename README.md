@@ -4,7 +4,8 @@ Reads a WebAssembly WAT file and return the exports object.
 
 ## Releases
 
-Please check [releases](https://github.com/ezhmd/require-wat/releases) for stable versions. The master branch contains latest development changes that might be unstable.
+Please check [releases](https://github.com/ezhmd/require-wat/releases) for stable versions. 
+The develop branch contains latest development changes that might be unstable.
 
 ## Usage
 
