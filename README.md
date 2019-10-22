@@ -39,13 +39,14 @@ or asynchronously:
 ```js
 const { requireWatAsync } = require('require-wat');
 
-(async () => {
-  const { add } = await requireWatAsync('./add.wat');
+requireWatAsync('./add.wat')
+    .then((wasmExports) => {
+        const { add } = wasmExports;
+        let result = add(1, 2);
 
-  let result = add(1, 2);
+        console.log('1 + 2 is ' + result); // 1 + 2 is 3
 
-  console.log('1 + 2 is ' + result); // 1 + 2 is 3
-})();
+    });
 ```
 Please check test folder for more examples
 
