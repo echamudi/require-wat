@@ -1,7 +1,6 @@
 const { readFileSync } = require('fs')
 const compiler = require('wabt')();
 
-
 const requireWat = async function (watFile, importObject = {}) {
     return new Promise((resolve, reject) => {
         try {
