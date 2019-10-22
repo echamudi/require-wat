@@ -6,56 +6,66 @@ describe('async requireWat', async function() {
     it('js can load wat function', async function() {
 
         const watFile = path.join(__dirname, '/calc.wat');
-        const { add, sub } = await requireWatAsync(watFile);
+
+        requireWatAsync(watFile).then((wasmExports) => {
+            const { add, sub } = wasmExports;
     
-        assert.deepStrictEqual(add(11,8), 19);
-        assert.deepStrictEqual(sub(3,11), -8);
+            assert.deepStrictEqual(add(11,8), 19);
+            assert.deepStrictEqual(sub(3,11), -8);
+        });
     });
     
     it('wat can load js function', async function() {
     
         const watFile = path.join(__dirname, '/volume.wat');
-        const { cubeVolume } = await requireWatAsync(watFile, {
+
+        requireWatAsync(watFile, {
             calculate: {
                 positivePower3: function(n) {
                     if (n <= 0) return 0;
                     return n * n * n;
                 }
             }
+        }).then((wasmExports) => {
+            const { cubeVolume } = wasmExports;
+
+            assert.deepStrictEqual(cubeVolume(5), 125);
+            assert.deepStrictEqual(cubeVolume(-10), 0);
         });
     
-        assert.deepStrictEqual(cubeVolume(5), 125);
-        assert.deepStrictEqual(cubeVolume(-10), 0);
     });
     
     it('js can access modified memory from wat', async function() {
     
         const watFile = path.join(__dirname, '/hello.wat');
-        const { myMemory } = await requireWatAsync(watFile);
-    
-        const memory = new Uint8Array(myMemory.buffer, 0, 5);
-        const result = String.fromCharCode(...memory);
-    
-        assert.deepStrictEqual(result, "hello");
+        requireWatAsync(watFile).then((wasmExports) => {
+            const { myMemory } = wasmExports;
+            const memory = new Uint8Array(myMemory.buffer, 0, 5);
+            const result = String.fromCharCode(...memory);
+        
+            assert.deepStrictEqual(result, "hello");
+        });
     });
     
     it('wat can access modified memory from js', async function() {
     
         const watFile = path.join(__dirname, '/sumOfFiveNumbers.wat');
-        const { sumOfFiveNumbers, myMemory } = await requireWatAsync(watFile);
+
+        requireWatAsync(watFile).then((wasmExports) => {
+            const { sumOfFiveNumbers, myMemory } = wasmExports;
+            const memory = new Uint8Array(myMemory.buffer, 0, 5);
     
-        const memory = new Uint8Array(myMemory.buffer, 0, 5);
-    
-        assert.deepStrictEqual(sumOfFiveNumbers(), 0);
-    
-        memory[0] = 23;
-        memory[1] = 11;
-        assert.deepStrictEqual(sumOfFiveNumbers(), 34);
-    
-        memory[2] = 31;
-        memory[3] = 91;
-        memory[4] = 12;    
-        assert.deepStrictEqual(sumOfFiveNumbers(), 168);
+            assert.deepStrictEqual(sumOfFiveNumbers(), 0);
+        
+            memory[0] = 23;
+            memory[1] = 11;
+            assert.deepStrictEqual(sumOfFiveNumbers(), 34);
+        
+            memory[2] = 31;
+            memory[3] = 91;
+            memory[4] = 12;    
+            assert.deepStrictEqual(sumOfFiveNumbers(), 168);
+        });
     });
 });
 
