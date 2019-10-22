@@ -31,10 +31,9 @@ describe('async requireWat', async function() {
     it('js can access modified memory from wat', async function() {
     
         const watFile = path.join(__dirname, '/hello.wat');
-        const { storeHello, myMemory } = await requireWat(watFile);
+        const { myMemory } = await requireWat(watFile);
     
         const memory = new Uint8Array(myMemory.buffer, 0, 5);
-        storeHello();
         const result = String.fromCharCode(...memory);
     
         assert.deepStrictEqual(result, "hello");
@@ -89,10 +88,9 @@ describe('sync requireWatSync', function() {
     it('js can access modified memory from wat', function() {
     
         const watFile = path.join(__dirname, '/hello.wat');
-        const { storeHello, myMemory } = requireWatSync(watFile);
+        const { myMemory } = requireWatSync(watFile);
     
         const memory = new Uint8Array(myMemory.buffer, 0, 5);
-        storeHello();
         const result = String.fromCharCode(...memory);
     
         assert.deepStrictEqual(result, "hello");
