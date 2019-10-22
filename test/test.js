@@ -1,4 +1,4 @@
-const { requireWat, requireWatSync } = require('../');
+const { requireWat, requireWatAsync } = require('../');
 const assert = require('assert');
 const path = require('path');
 
@@ -6,7 +6,7 @@ describe('async requireWat', async function() {
     it('js can load wat function', async function() {
 
         const watFile = path.join(__dirname, '/calc.wat');
-        const { add, sub } = await requireWat(watFile);
+        const { add, sub } = await requireWatAsync(watFile);
     
         assert.deepStrictEqual(add(11,8), 19);
         assert.deepStrictEqual(sub(3,11), -8);
@@ -15,7 +15,7 @@ describe('async requireWat', async function() {
     it('wat can load js function', async function() {
     
         const watFile = path.join(__dirname, '/volume.wat');
-        const { cubeVolume } = await requireWat(watFile, {
+        const { cubeVolume } = await requireWatAsync(watFile, {
             calculate: {
                 positivePower3: function(n) {
                     if (n <= 0) return 0;
@@ -31,7 +31,7 @@ describe('async requireWat', async function() {
     it('js can access modified memory from wat', async function() {
     
         const watFile = path.join(__dirname, '/hello.wat');
-        const { myMemory } = await requireWat(watFile);
+        const { myMemory } = await requireWatAsync(watFile);
     
         const memory = new Uint8Array(myMemory.buffer, 0, 5);
         const result = String.fromCharCode(...memory);
@@ -42,7 +42,7 @@ describe('async requireWat', async function() {
     it('wat can access modified memory from js', async function() {
     
         const watFile = path.join(__dirname, '/sumOfFiveNumbers.wat');
-        const { sumOfFiveNumbers, myMemory } = await requireWat(watFile);
+        const { sumOfFiveNumbers, myMemory } = await requireWatAsync(watFile);
     
         const memory = new Uint8Array(myMemory.buffer, 0, 5);
     
@@ -63,7 +63,7 @@ describe('sync requireWatSync', function() {
     it('js can load wat function', function() {
 
         const watFile = path.join(__dirname, '/calc.wat');
-        const { add, sub } = requireWatSync(watFile);
+        const { add, sub } = requireWat(watFile);
     
         assert.deepStrictEqual(add(11,8), 19);
         assert.deepStrictEqual(sub(3,11), -8);
@@ -72,7 +72,7 @@ describe('sync requireWatSync', function() {
     it('wat can load js function', function() {
     
         const watFile = path.join(__dirname, '/volume.wat');
-        const { cubeVolume } = requireWatSync(watFile, {
+        const { cubeVolume } = requireWat(watFile, {
             calculate: {
                 positivePower3: function(n) {
                     if (n <= 0) return 0;
@@ -88,7 +88,7 @@ describe('sync requireWatSync', function() {
     it('js can access modified memory from wat', function() {
     
         const watFile = path.join(__dirname, '/hello.wat');
-        const { myMemory } = requireWatSync(watFile);
+        const { myMemory } = requireWat(watFile);
     
         const memory = new Uint8Array(myMemory.buffer, 0, 5);
         const result = String.fromCharCode(...memory);
@@ -99,7 +99,7 @@ describe('sync requireWatSync', function() {
     it('wat can access modified memory from js', function() {
     
         const watFile = path.join(__dirname, '/sumOfFiveNumbers.wat');
-        const { sumOfFiveNumbers, myMemory } = requireWatSync(watFile);
+        const { sumOfFiveNumbers, myMemory } = requireWat(watFile);
     
         const memory = new Uint8Array(myMemory.buffer, 0, 5);
     

@@ -9,7 +9,7 @@ The develop branch contains latest development changes that might be unstable.
 
 ## Usage
 
-WAT file (`add.wat`)
+Prepare your WAT file (`add.wat`)
 
 ```wat
 (module
@@ -24,20 +24,29 @@ WAT file (`add.wat`)
 )
 ```
 
-JS file
+Load the wat synchronously:
 
 ```js
-const requireWat = require('require-wat');
+const { requireWat } = require('require-wat');
+const { add } = requireWat('./add.wat');
 
-(async () => {
-    const { add } = await requireWat('./add.wat');
+let result = add(1, 2);
 
-    let result = add(1, 2);
-
-    console.log('1 + 2 is ' + result); // 1 + 2 is 3
-})();
+console.log('1 + 2 is ' + result); // 1 + 2 is 3
 ```
 
+or asynchronously:
+```js
+const { requireWatAsync } = require('require-wat');
+
+(async () => {
+  const { add } = await requireWatAsync('./add.wat');
+
+  let result = add(1, 2);
+
+  console.log('1 + 2 is ' + result); // 1 + 2 is 3
+})();
+```
 Please check test folder for more examples
 
 
