@@ -4,11 +4,12 @@ Reads a WebAssembly WAT file and return the exports object.
 
 ## Releases
 
-Please check [releases](https://github.com/ezhmd/require-wat/releases) for stable versions. The master branch contains latest development changes that might be unstable.
+Please check [releases](https://github.com/ezhmd/require-wat/releases) for stable versions. 
+The develop branch contains latest development changes that might be unstable.
 
 ## Usage
 
-WAT file (`add.wat`)
+Prepare your WAT file (`add.wat`)
 
 ```wat
 (module
@@ -23,20 +24,30 @@ WAT file (`add.wat`)
 )
 ```
 
-JS file
+Load the wat synchronously:
 
 ```js
-const requireWat = require('require-wat');
+const { requireWat } = require('require-wat');
+const { add } = requireWat('./add.wat');
 
-(async () => {
-    const { add } = await requireWat('./add.wat');
+let result = add(1, 2);
 
-    let result = add(1, 2);
-
-    console.log('1 + 2 is ' + result); // 1 + 2 is 3
-})();
+console.log('1 + 2 is ' + result); // 1 + 2 is 3
 ```
 
+or asynchronously:
+```js
+const { requireWatAsync } = require('require-wat');
+
+requireWatAsync('./add.wat')
+    .then((wasmExports) => {
+        const { add } = wasmExports;
+        let result = add(1, 2);
+
+        console.log('1 + 2 is ' + result); // 1 + 2 is 3
+
+    });
+```
 Please check test folder for more examples
 
 
@@ -45,6 +56,7 @@ Please check test folder for more examples
 | Branch | Status |
 | - | - |
 | master | [![Build Status](https://travis-ci.org/ezhmd/require-wat.svg?branch=master)](https://travis-ci.org/ezhmd/require-wat) |
+| develop | [![Build Status](https://travis-ci.org/ezhmd/require-wat.svg?branch=develop)](https://travis-ci.org/ezhmd/require-wat) |
 
 ### Testing
 ```
