@@ -55,6 +55,7 @@ Please check test folder for more examples
 | Branch | Status |
 | - | - |
 | master | [![Build Status](https://travis-ci.org/ezhmd/require-wat.svg?branch=master)](https://travis-ci.org/ezhmd/require-wat) |
+| develop | [![Build Status](https://travis-ci.org/ezhmd/require-wat.svg?branch=develop)](https://travis-ci.org/ezhmd/require-wat) |
 
 ### Testing
 ```
