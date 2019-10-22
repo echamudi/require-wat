@@ -55,7 +55,8 @@ Please check test folder for more examples
 
 | Branch | Status |
 | - | - |
-| master | [![Build Status](https://travis-ci.org/ezhmd/require-wat.svg?branch=master)](https://travis-ci.org/ezhmd/require-wat) |
+| master | [![Build Status](https://travis-ci.org/ezhmd/require-wat.svg?branch=master)](https://travis-ci.org/ezhmd/require-wat) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fezhmd%2Frequire-wat.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fezhmd%2Frequire-wat?ref=badge_shield)
+|
 | develop | [![Build Status](https://travis-ci.org/ezhmd/require-wat.svg?branch=develop)](https://travis-ci.org/ezhmd/require-wat) |
 
 ### Testing
@@ -76,3 +77,5 @@ Code and documentation copyright 2019 the [Require WAT Project Authors](https://
 Require WAT code is licensed under [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0). Images, logos, docs, and articles in this Require WAT project are released under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
 
 Libraries, dependencies, and tools used in this project are tied with their own licenses respectively.
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fezhmd%2Frequire-wat.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fezhmd%2Frequire-wat?ref=badge_large)
