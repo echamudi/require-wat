@@ -63,6 +63,15 @@ Please check test folder for more examples
 npm test
 ```
 
+## Contributing
+
+This project is following [git-flow branching model](https://github.com/echamudi/echamudi-docs/raw/master/git-strategy/gitflow.pdf). 
+- Please create a branch from `develop`.
+- Name it something descriptive other than `master`, `develop`, `release-*`, or `hotfix-*`.
+- Open a pull request to `develop`.
+
+Make sure your contributions are compatible with the license of this project.
+
 ## Authors
 
 * **Ezzat Chamudi** - [echamudi](https://github.com/echamudi)
