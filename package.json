@@ -1,6 +1,6 @@
 {
   "name": "require-wat",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Easily import functions from WebAssembly WAT file to JS file",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://ezhmd@github.com/ezhmd/require-wat.git"
+    "url": "git+https://echamudi@github.com/echamudi/require-wat.git"
   },
   "keywords": [
     "WebAssembly",
@@ -18,9 +18,9 @@
   "author": "Ezzat Chamudi",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/ezhmd/require-wat/issues"
+    "url": "https://github.com/echamudi/require-wat/issues"
   },
-  "homepage": "https://github.com/ezhmd/require-wat#readme",
+  "homepage": "https://github.com/echamudi/require-wat#readme",
   "dependencies": {
     "wabt": "^1.0.12"
   },
